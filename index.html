@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Tower Defense</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="top-bar">
+    <div id="resources">
+      <span id="gold">💰0</span>
+      <span id="diamond">💎0</span>
+      <span id="energy">⚡10/20</span>
+    </div>
+    <button id="options">⚙️</button>
+  </div>
+  <div id="main-content">
+    <section id="main-screen" class="screen">
+      <h1>타워 디펜스</h1>
+    </section>
+    <section id="equipment-screen" class="screen hidden">
+      <div id="equipment-top">
+        <div id="equipment-left" class="equipment-column">
+          <div class="slot">무기</div>
+          <div class="slot">탄약</div>
+          <div class="slot">조준경</div>
+        </div>
+        <div id="tower-view">🗼</div>
+        <div id="equipment-right" class="equipment-column">
+          <div class="slot">레이더</div>
+          <div class="slot">쉴드</div>
+          <div class="slot">발전소</div>
+        </div>
+      </div>
+      <div id="inventory"></div>
+    </section>
+  </div>
+  <nav id="bottom-bar">
+    <button data-screen="shop">상점</button>
+    <button data-screen="equipment">장비</button>
+    <button data-screen="stage">스테이지</button>
+    <button data-screen="skill">스킬</button>
+    <button data-screen="challenge">챌린지</button>
+  </nav>
+  <script src="script.js"></script>
+</body>
+</html>
