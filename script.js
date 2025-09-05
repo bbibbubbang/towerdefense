@@ -60,16 +60,20 @@ document.getElementById('next-stage').addEventListener('click', () => {
 
 updateStage();
 
-document.querySelectorAll('#bottom-bar button').forEach(btn => {
+const bottomBarButtons = document.querySelectorAll('#bottom-bar button');
+for (const btn of bottomBarButtons) {
   btn.addEventListener('click', () => {
     const screen = btn.getAttribute('data-screen');
-    screens.forEach(sec => sec.classList.add('hidden'));
+    for (const sec of screens) {
+      sec.classList.add('hidden');
+    }
     if (screen === 'equipment') {
       document.getElementById('equipment-screen').classList.remove('hidden');
     } else if (screen === 'stage') {
       document.getElementById('stage-screen').classList.remove('hidden');
+      updateStage();
     } else {
       document.getElementById('main-screen').classList.remove('hidden');
     }
   });
-});
+}
