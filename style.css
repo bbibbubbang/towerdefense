@@ -1,15 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: sans-serif;
+  overflow: hidden;
 }
 
 #top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px 10px;
+  background: #fff;
 }
 
 #resources span {
@@ -27,14 +38,21 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
+  height: 50px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 5px 0;
   background: #eee;
 }
 
 #main-content {
-  padding-bottom: 60px; /* space for bottom bar */
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 
 .screen.hidden {
@@ -44,7 +62,7 @@ html, body {
 #equipment-screen {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px - 40px); /* top and bottom bars */
+  height: 100%;
 }
 
 #equipment-top {
@@ -101,7 +119,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 60px - 40px);
+  height: 100%;
 }
 
 #stage-header {

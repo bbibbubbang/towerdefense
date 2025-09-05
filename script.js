@@ -30,11 +30,13 @@ const stages = [
 let currentStage = 0;
 const stageNumberEl = document.getElementById('stage-number');
 const stageStarsEl = document.getElementById('stage-stars');
+const prevStageBtn = document.getElementById('prev-stage');
+const nextStageBtn = document.getElementById('next-stage');
 
 function stageStars(hp) {
-  if (hp == null) return '☆☆☆';
-  if (hp < 50) return '★☆☆';
-  if (hp < 95) return '★★☆';
+  if (hp == null) return '';
+  if (hp < 50) return '★';
+  if (hp < 95) return '★★';
   return '★★★';
 }
 
@@ -42,17 +44,19 @@ function updateStage() {
   const stage = stages[currentStage];
   stageNumberEl.textContent = `스테이지 ${stage.number}`;
   stageStarsEl.textContent = stageStars(stage.hp);
+  prevStageBtn.disabled = currentStage === 0;
+  nextStageBtn.disabled = currentStage === stages.length - 1 || stage.hp === null;
 }
 
-document.getElementById('prev-stage').addEventListener('click', () => {
+prevStageBtn.addEventListener('click', () => {
   if (currentStage > 0) {
     currentStage--;
     updateStage();
   }
 });
 
-document.getElementById('next-stage').addEventListener('click', () => {
-  if (currentStage < stages.length - 1) {
+nextStageBtn.addEventListener('click', () => {
+  if (currentStage < stages.length - 1 && stages[currentStage].hp !== null) {
     currentStage++;
     updateStage();
   }
