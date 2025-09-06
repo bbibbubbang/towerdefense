@@ -64,6 +64,20 @@ nextStageBtn.addEventListener('click', () => {
 
 updateStage();
 
+// Stage action buttons
+const huntButton = document.getElementById('hunt-button');
+const challengeButton = document.getElementById('challenge-button');
+const rewardButton = document.getElementById('reward-button');
+
+function handleStageAction(action) {
+  // Placeholder for stage progression logic such as energy deduction or screen change
+  alert(`${action} 기능은 준비 중입니다.`);
+}
+
+huntButton.addEventListener('click', () => handleStageAction('토벌'));
+challengeButton.addEventListener('click', () => handleStageAction('도전'));
+rewardButton.addEventListener('click', () => handleStageAction('보상'));
+
 const bottomBarButtons = document.querySelectorAll('#bottom-bar button');
 bottomBarButtons.forEach(btn => {
   btn.addEventListener('click', () => {
