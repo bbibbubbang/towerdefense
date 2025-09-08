@@ -5,7 +5,8 @@ function requestFullScreen() {
   }
 }
 
-document.addEventListener('click', requestFullScreen);
+// Request fullscreen only once to avoid stealing subsequent click events
+document.addEventListener('click', requestFullScreen, { once: true });
 
 // Screen switching
 const screens = document.querySelectorAll('.screen');
