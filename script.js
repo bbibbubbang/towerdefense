@@ -80,10 +80,12 @@ challengeButton.addEventListener('click', () => handleStageAction('도전'));
 rewardButton.addEventListener('click', () => handleStageAction('보상'));
 
 const bottomBarButtons = document.querySelectorAll('#bottom-bar button');
-bottomBarButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const screen = btn.getAttribute('data-screen');
-    screens.forEach(sec => sec.classList.add('hidden'));
+for (let i = 0; i < bottomBarButtons.length; i++) {
+  bottomBarButtons[i].addEventListener('click', () => {
+    const screen = bottomBarButtons[i].getAttribute('data-screen');
+    for (let j = 0; j < screens.length; j++) {
+      screens[j].classList.add('hidden');
+    }
     if (screen === 'equipment') {
       document.getElementById('equipment-screen').classList.remove('hidden');
     } else if (screen === 'stage') {
@@ -93,4 +95,4 @@ bottomBarButtons.forEach(btn => {
       document.getElementById('main-screen').classList.remove('hidden');
     }
   });
-});
+}
