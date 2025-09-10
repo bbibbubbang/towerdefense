@@ -65,10 +65,13 @@ nextStageBtn.addEventListener('click', () => {
 updateStage();
 
 const bottomBarButtons = document.querySelectorAll('#bottom-bar button');
-bottomBarButtons.forEach(btn => {
+for (let i = 0; i < bottomBarButtons.length; i++) {
+  const btn = bottomBarButtons[i];
   btn.addEventListener('click', () => {
     const screen = btn.getAttribute('data-screen');
-    screens.forEach(sec => sec.classList.add('hidden'));
+    for (let j = 0; j < screens.length; j++) {
+      screens[j].classList.add('hidden');
+    }
     if (screen === 'equipment') {
       document.getElementById('equipment-screen').classList.remove('hidden');
     } else if (screen === 'stage') {
@@ -78,4 +81,4 @@ bottomBarButtons.forEach(btn => {
       document.getElementById('main-screen').classList.remove('hidden');
     }
   });
-});
+}
