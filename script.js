@@ -45,7 +45,7 @@ function updateStage() {
   stageNumberEl.textContent = `스테이지 ${stage.number}`;
   stageStarsEl.textContent = stageStars(stage.hp);
   prevStageBtn.disabled = currentStage === 0;
-  nextStageBtn.disabled = currentStage === stages.length - 1 || stage.hp === null;
+  nextStageBtn.disabled = currentStage === stages.length - 1;
 }
 
 prevStageBtn.addEventListener('click', () => {
