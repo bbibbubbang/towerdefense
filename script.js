@@ -82,20 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Bottom navigation handling
   const bottomBar = document.getElementById('bottom-bar');
-  bottomBar.addEventListener('click', (e) => {
-    const button = e.target.closest('button');
-    if (!button) return;
+  bottomBar.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      const screen = button.dataset.screen;
+      screens.forEach(s => s.classList.add('hidden'));
 
-    const screen = button.dataset.screen;
-    screens.forEach(s => s.classList.add('hidden'));
-
-    if (screen === 'equipment') {
-      document.getElementById('equipment-screen').classList.remove('hidden');
-    } else if (screen === 'stage') {
-      document.getElementById('stage-screen').classList.remove('hidden');
-      updateStage();
-    } else {
-      document.getElementById('main-screen').classList.remove('hidden');
-    }
+      if (screen === 'equipment') {
+        document.getElementById('equipment-screen').classList.remove('hidden');
+      } else if (screen === 'stage') {
+        document.getElementById('stage-screen').classList.remove('hidden');
+        updateStage();
+      } else {
+        document.getElementById('main-screen').classList.remove('hidden');
+      }
+    });
   });
 });
