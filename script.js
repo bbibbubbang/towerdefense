@@ -44,10 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateStage() {
     const stage = stages[currentStage];
+    const nextStage = stages[currentStage + 1];
+
     stageNumberEl.textContent = `스테이지 ${stage.number}`;
     stageStarsEl.textContent = stageStars(stage.hp);
+
     prevStageBtn.disabled = currentStage === 0;
-    nextStageBtn.disabled = currentStage === stages.length - 1 || stage.hp === null;
+    nextStageBtn.disabled =
+      !nextStage || nextStage.hp === null;
   }
 
   prevStageBtn.addEventListener('click', () => {
@@ -58,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   nextStageBtn.addEventListener('click', () => {
-    if (currentStage < stages.length - 1 && stages[currentStage].hp !== null) {
+    const nextStage = stages[currentStage + 1];
+    if (nextStage && nextStage.hp !== null) {
       currentStage++;
       updateStage();
     }
